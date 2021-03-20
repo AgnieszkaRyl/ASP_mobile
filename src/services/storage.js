@@ -8,7 +8,8 @@ export const useStorage = () => useContext(StorageContext);
 export const StorageProvider = ({ children }) => {
   const [storage, setStorage] = useState({
     notifications: [],
-    eventPosts: [],
+    anniversaryPosts: [],
+    events: [],
   });
 
   useEffect(() => {
@@ -19,7 +20,8 @@ export const StorageProvider = ({ children }) => {
       }));
 
     api.getNotifications().then(updateStorage('notifications'));
-    api.getEventPosts().then(updateStorage('eventPosts'));
+    api.getAnniversaryPosts().then(updateStorage('anniversaryPosts'));
+    api.getEvents().then(updateStorage('events'));
   }, []);
 
   return (
