@@ -19,9 +19,11 @@ export const StorageProvider = ({ children }) => {
         [fieldName]: newValue,
       }));
 
-    api.getNotifications().then(updateStorage('notifications'));
-    api.getAnniversaryPosts().then(updateStorage('anniversaryPosts'));
-    api.getEvents().then(updateStorage('events'));
+    Promise.all([
+      api.getNotifications().then(updateStorage('notifications')),
+      api.getAnniversaryPosts().then(updateStorage('anniversaryPosts')),
+      api.getEvents().then(updateStorage('events')),
+    ]).catch(console.warn);
   }, []);
 
   return (
