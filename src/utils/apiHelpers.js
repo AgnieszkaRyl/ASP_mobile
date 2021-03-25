@@ -3,7 +3,7 @@ export const mapListRequestResponse = response =>
 
 const mapResponseItemDates = item => ({
   ...item,
-  published_at: Date.parse(item.published_at),
-  created_at: Date.parse(item.created_at),
-  updated_at: Date.parse(item.updated_at),
+  published_at: new Date(Date.parse(item.published_at)),
+  created_at: new Date(Date.parse(item.created_at)),
+  updated_at: new Date(Date.parse(item.updated_at)),
 });

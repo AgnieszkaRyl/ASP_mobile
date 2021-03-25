@@ -8,6 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import React from 'react';
+import NotificationList from './src/screens/NotificationList/NotificationList';
 
 const fonts = {
   'gs-bold': require('./assets/fonts/GeppertSans-Bold.otf'),
@@ -32,6 +33,10 @@ export default function App() {
       <NavigationContainer>
         <StatusBar style="auto" />
         <Stack.Navigator headerMode="none">
+          <Stack.Screen
+            name={screenNames.NOTIFICATIONS_LIST}
+            component={NotificationList}
+          />
           <Stack.Screen
             name={screenNames.ANIMATION_SCREEN}
             component={AnimationScreen}
