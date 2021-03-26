@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import moment from 'moment';
 import { BLUE_ASP, ORANGE_ASP, GREY_ASP } from '../../constants/colors';
+import { GS_BOLD, GS_REGULAR } from '../../constants/fonts';
 
 export default function NotificationItem({ item }) {
   return (
@@ -40,12 +41,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontFamily: 'gs-bold',
+    fontFamily: GS_BOLD,
   },
   contentText: {
     marginTop: 20,
     fontSize: 14,
-    fontFamily: 'gs-regular',
+    fontFamily: GS_REGULAR,
   },
   uptext: {
     marginTop: 50,
@@ -54,5 +55,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: GREY_ASP,
     fontSize: 10,
+    fontFamily: GS_REGULAR,
   },
 });
