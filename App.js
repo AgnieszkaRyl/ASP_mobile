@@ -15,6 +15,7 @@ import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import React from 'react';
+import NotificationDetails from './src/screens/NotificationDetails/NotificationDetails';
 
 const fonts = {
   'gs-bold': require('./assets/fonts/GeppertSans-Bold.otf'),
@@ -55,27 +56,31 @@ const MainStackNavigator = () => (
       name={screenNames.ANIMATION_SCREEN}
       component={AnimationScreen}
     />
+    <Stack.Screen
+      name={screenNames.NOTIFICATION_DETAILS}
+      component={NotificationDetails}
+    />
   </Stack.Navigator>
 );
 
 const MainTabNavigator = () => (
   <Tab.Navigator tabBarOptions={TAP_BAR_OPTIONS}>
-    <Stack.Screen
+    <Tab.Screen
       name={screenNames.EVENTS_LIST_SCREEN}
       component={EventsListScreen}
       options={{ tabBarIcon: CalendarIcon }}
     />
-    <Stack.Screen
+    <Tab.Screen
       name={screenNames.NOTIFICATIONS_LIST}
       component={NotificationList}
       options={{ tabBarIcon: RingIcon }}
     />
-    <Stack.Screen
+    <Tab.Screen
       name={screenNames.TIMETABLE_SCREEN}
       component={EventsListScreen}
       options={{ tabBarIcon: GraduateCupIcon }}
     />
-    <Stack.Screen
+    <Tab.Screen
       name={screenNames.ANNIVERSARY_POSTS_SCREEN}
       component={EventsListScreen}
       options={{ tabBarIcon: AnniversaryIcon }}
