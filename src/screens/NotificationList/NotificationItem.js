@@ -1,18 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
 import moment from 'moment';
 import { BLUE_ASP, ORANGE_ASP, GREY_ASP } from '../../constants/colors';
 import { GS_BOLD, GS_REGULAR } from '../../constants/fonts';
+import * as screenNames from '../../constants/screenNames';
 
-export default function NotificationItem({ item }) {
+export default function NotificationItem({ item, navigation, onPress }) {
   return (
-    <View style={[styles.item, item.is_important && styles.important]}>
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.contentText}>{item.short_description}</Text>
-      <Text style={styles.date}>
-        {moment(item.published_at).format('DD/MM/YYYY, HH:mm')}
-      </Text>
-    </View>
+    <Pressable onPress={onPress}>
+      <View style={[styles.item, item.is_important && styles.important]}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.contentText}>{item.short_description}</Text>
+        <Text style={styles.date}>
+          {moment(item.published_at).format('DD/MM/YYYY, HH:mm')}
+        </Text>
+      </View>
+    </Pressable>
   );
 }
 
