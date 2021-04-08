@@ -11,7 +11,7 @@ import {
 import ShareIcon from '../../../assets/svg/share.svg';
 
 export default function NotificationDetails({ route }) {
-  const { itemId } = route.params;
+  const { notification } = route.params;
   const AppButton = ({ title }) => (
     <Pressable style={styles.appButtonContainer}>
       <View
@@ -34,15 +34,19 @@ export default function NotificationDetails({ route }) {
       <View
         style={[
           styles.mainView,
-          itemId.is_important == true && styles.importantNotification,
+          notification.is_important && styles.importantNotification,
         ]}
       >
-        <Text style={styles.title}>{itemId.title}</Text>
-        <Text style={styles.shortDescription}>{itemId.short_description}</Text>
-        <Text style={styles.date}>
-          {moment(itemId.published_at).format('DD/MM/YYYY, HH:mm')}
+        <Text style={styles.title}>{notification.title}</Text>
+        <Text style={styles.shortDescription}>
+          {notification.short_description}
         </Text>
-        <Text style={styles.longDescription}>{itemId.long_description}</Text>
+        <Text style={styles.date}>
+          {moment(notification.published_at).format('DD/MM/YYYY, HH:mm')}
+        </Text>
+        <Text style={styles.longDescription}>
+          {notification.long_description}
+        </Text>
       </View>
       <AppButton title="Udostępnij" />
     </ScrollView>

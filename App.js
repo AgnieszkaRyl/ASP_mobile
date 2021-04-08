@@ -15,6 +15,7 @@ import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import React from 'react';
+import DepartmentSwitchboardScreen from './src/screens/DepartmentSwitchboardScreen/DepartmentSwitchboardScreen';
 import NotificationDetails from './src/screens/NotificationDetails/NotificationDetails';
 
 const fonts = {
@@ -76,8 +77,8 @@ const MainTabNavigator = () => (
       options={{ tabBarIcon: RingIcon }}
     />
     <Tab.Screen
-      name={screenNames.TIMETABLE_SCREEN}
-      component={EventsListScreen}
+      name={screenNames.DEPARTMENT_SWITCHBORARD}
+      component={DepartmentSwitchboardScreen}
       options={{ tabBarIcon: GraduateCupIcon }}
     />
     <Tab.Screen
@@ -85,5 +86,6 @@ const MainTabNavigator = () => (
       component={EventsListScreen}
       options={{ tabBarIcon: AnniversaryIcon }}
     />
+
   </Tab.Navigator>
 );
