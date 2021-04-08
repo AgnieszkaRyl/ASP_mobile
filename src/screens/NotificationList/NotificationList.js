@@ -22,7 +22,7 @@ export default function NotificationList({ navigation }) {
             item={notification}
             onPress={() =>
               navigation.navigate(screenNames.NOTIFICATION_DETAILS, {
-                itemId: notification,
+                notification: notification,
               })
             }
           />
