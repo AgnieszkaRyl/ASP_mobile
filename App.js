@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import EventsListScreen from './src/screens/EventsListScreen';
 import GraduateCupIcon from './assets/svg/graduate_cup.svg';
 import AnimationScreen from './src/screens/AnimationScreen';
+import AnniversaryCalendarListScreen from './src/screens/anniversary_calendar/AnniversaryCalendarListScreen';
 import * as screenNames from './src/constants/screenNames';
 import AnniversaryIcon from './assets/svg/anniversary.svg';
 import { StorageProvider } from './src/services/storage';
@@ -82,8 +83,8 @@ const MainTabNavigator = () => (
       options={{ tabBarIcon: GraduateCupIcon }}
     />
     <Tab.Screen
-      name={screenNames.ANNIVERSARY_POSTS_SCREEN}
-      component={EventsListScreen}
+      name={screenNames.ANNIVERSARY_CALENDAR_LIST_SCREEN}
+      component={AnniversaryCalendarListScreen}
       options={{ tabBarIcon: AnniversaryIcon }}
     />
 
