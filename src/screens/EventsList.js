@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 
-const EventsListScreen = () => {
+const EventsList = () => {
   return (
-    <View style={{ padding: 30 }}>
+    <View style={{ padding: 19 }}>
       <Text>Events List screen</Text>
     </View>
   );
 };
 
-export default EventsListScreen;
+export default EventsList;

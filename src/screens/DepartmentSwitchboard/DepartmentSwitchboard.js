@@ -11,7 +11,7 @@ import ArtisticGraphics from '../../../assets/svg/atristic_graphics.svg';
 import Schedule from '../../../assets/svg/schedule.svg';
 import TileSwitchBoard from './TileSwitchBoard';
 
-export default function DepartmentSwitchboardScreen() {
+export default function DepartmentSwitchboard() {
   return (
     <View style={styles.whiteBackground}>
       <ScrollView style={styles.mainScrollView}>
