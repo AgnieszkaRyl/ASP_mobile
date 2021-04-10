@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 
-const AnimationScreen = () => {
+const Splash = () => {
   return (
     <View style={{ padding: 30 }}>
       <Text>Animation screen</Text>
@@ -9,4 +9,4 @@ const AnimationScreen = () => {
   );
 };
 
-export default AnimationScreen;
+export default Splash;
