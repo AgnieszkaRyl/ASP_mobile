@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import { useStorage } from '../../services/storage';
 import AnniversaryCalendarItem from './AnniversaryCalendarItem';
 
-const AnniversaryCalendarListScreen = () => {
+const AnniversaryCalendar = () => {
   const { anniversaryPosts } = useStorage();
 
   const sortedAnniversaryPosts = useMemo(
@@ -23,4 +23,4 @@ const AnniversaryCalendarListScreen = () => {
   );
 };
 
-export default AnniversaryCalendarListScreen;
+export default AnniversaryCalendar;
