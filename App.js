@@ -1,25 +1,25 @@
-import AnniversaryCalendarListScreen from './src/screens/anniversary_calendar/AnniversaryCalendarListScreen';
 import DepartmentSwitchboard from './src/screens/DepartmentSwitchboard/DepartmentSwitchboard';
 import NotificationDetails from './src/screens/NotificationDetails/NotificationDetails';
+import AnniversaryCalendar from './src/screens/AnniversaryCalendar/AnniversaryCalendar';
 import NotificationList from './src/screens/NotificationList/NotificationList';
 import { DETAILS_TRANSITION_CONFIG } from './src/constants/screenTransitions';
+import { StorageProvider, StorageConsumer } from './src/services/storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TAP_BAR_OPTIONS } from './src/constants/tabBarOptions';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import EventsList from './src/screens/EventsList';
 import GraduateCupIcon from './assets/svg/graduate-cup.svg';
 import * as screenNames from './src/constants/screenNames';
 import AnniversaryIcon from './assets/svg/anniversary.svg';
-import { StorageProvider } from './src/services/storage';
+import SplashScreen from './src/components/SplashScreen';
 import { DefaultTheme } from '@react-navigation/native';
 import CalendarIcon from './assets/svg/calendar.svg';
 import AppHeader from './src/components/AppHeader';
+import EventsList from './src/screens/EventsList';
 import RingIcon from './assets/svg/ring.svg';
 import { StatusBar } from 'expo-status-bar';
-import AppLoading from 'expo-app-loading';
+import React, { useState } from 'react';
 import { useFonts } from 'expo-font';
-import React from 'react';
 
 const fonts = {
   'gs-bold': require('./assets/fonts/GeppertSans-Bold.otf'),
@@ -41,16 +41,24 @@ const theme = {
 
 export default function App() {
   const [areFontsLoaded] = useFonts(fonts);
+  const [isSplashAnimationEnded, setIsSplashAnimationEnded] = useState(false);
 
-  if (!areFontsLoaded) {
-    return <AppLoading />;
-  }
   return (
     <StorageProvider>
-      <NavigationContainer theme={theme}>
-        <StatusBar style="auto" />
-        <MainTabNavigator />
-      </NavigationContainer>
+      <StorageConsumer>
+        {({ isLoading }) =>
+          isLoading || !areFontsLoaded || !isSplashAnimationEnded ? (
+            <SplashScreen
+              onAnimationFinish={() => setIsSplashAnimationEnded(true)}
+            />
+          ) : (
+            <NavigationContainer theme={theme}>
+              <StatusBar style="auto" />
+              <MainTabNavigator />
+            </NavigationContainer>
+          )
+        }
+      </StorageConsumer>
     </StorageProvider>
   );
 }
@@ -141,7 +149,7 @@ const AnniversaryStackNavigator = () => (
   >
     <MainTab.Screen
       name={screenNames.ANNIVERSARY_CALENDAR_LIST_SCREEN}
-      component={AnniversaryCalendarListScreen}
+      component={AnniversaryCalendar}
     />
   </AnniversaryStack.Navigator>
 );

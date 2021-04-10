@@ -5,8 +5,11 @@ const StorageContext = React.createContext({});
 
 export const useStorage = () => useContext(StorageContext);
 
+export const StorageConsumer = StorageContext.Consumer;
+
 export const StorageProvider = ({ children }) => {
   const [storage, setStorage] = useState({
+    isLoading: true,
     notifications: [],
     anniversaryPosts: [],
     events: [],
@@ -23,7 +26,9 @@ export const StorageProvider = ({ children }) => {
       api.getNotifications().then(updateStorage('notifications')),
       api.getAnniversaryPosts().then(updateStorage('anniversaryPosts')),
       api.getEvents().then(updateStorage('events')),
-    ]).catch(console.warn);
+    ])
+      .catch(console.warn)
+      .finally(() => updateStorage('isLoading')(false));
   }, []);
 
   return (
