@@ -10,18 +10,15 @@ import GraphicsDesignIcon from '../../../assets/svg/graphics_design.svg';
 import ArtisticGraphics from '../../../assets/svg/atristic_graphics.svg';
 import Schedule from '../../../assets/svg/schedule.svg';
 import TileSwitchBoard from './TileSwitchBoard';
+import * as screenNames from '../../constants/screenNames';
 
-export default function DepartmentSwitchboard() {
+export default function DepartmentSwitchboard({ navigation }) {
   return (
     <View style={styles.whiteBackground}>
       <ScrollView style={styles.mainScrollView}>
         <Text style={styles.sectionTitle}>plany zajęć</Text>
         <View style={styles.sectionTitleTiles}>
-          <TileSwitchBoard
-            title="plan zajęć"
-            IconPrep={Schedule}
-            isBlue={false}
-          />
+          <TileSwitchBoard title="plan zajęć" IconPrep={Schedule} />
         </View>
         <Text style={styles.sectionTitle}>wydział</Text>
         <View style={styles.sectionTitleTiles}>
@@ -29,13 +26,11 @@ export default function DepartmentSwitchboard() {
             <TileSwitchBoard
               title="władze wydziału"
               IconPrep={DepartmentAthorityIcon}
-              isBlue={false}
+              onPress={() =>
+                navigation.navigate(screenNames.AUTHORITY_DEPARTMENT)
+              }
             />
-            <TileSwitchBoard
-              title="kontakt"
-              IconPrep={ContactIcon}
-              isBlue={false}
-            />
+            <TileSwitchBoard title="kontakt" IconPrep={ContactIcon} />
           </View>
         </View>
         <Text style={styles.sectionTitle}>katedry</Text>

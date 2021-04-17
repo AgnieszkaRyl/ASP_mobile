@@ -3,10 +3,11 @@ import React from 'react';
 import { GS_BOLD } from '../../constants/fonts';
 import { BLUE_ASP, ORANGE_ASP } from '../../constants/colors';
 
-export default function TileSwitchBoard({ title, IconPrep, isBlue }) {
+export default function TileSwitchBoard({ title, IconPrep, isBlue, onPress }) {
   return (
     <View style={styles.tileContainer}>
       <Pressable
+        onPress={onPress}
         style={[styles.tile, isBlue && styles.blueBackgroundTile]}
         android_ripple={{ color: '#00000010' }}
       >

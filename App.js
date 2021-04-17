@@ -1,5 +1,4 @@
 import DepartmentSwitchboard from './src/screens/DepartmentSwitchboard/DepartmentSwitchboard';
-import NotificationDetails from './src/screens/NotificationDetails/NotificationDetails';
 import AnniversaryCalendar from './src/screens/AnniversaryCalendar/AnniversaryCalendar';
 import NotificationList from './src/screens/NotificationList/NotificationList';
 import { DETAILS_TRANSITION_CONFIG } from './src/constants/screenTransitions';
@@ -20,6 +19,8 @@ import RingIcon from './assets/svg/ring.svg';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { useFonts } from 'expo-font';
+import NotificationDetails from './src/screens/NotificationDetails/NotificationDetails';
+import AuthorityDepartment from './src/screens/AuthorityDepartmentScreen/AuthorityDepartment';
 
 const fonts = {
   'gs-bold': require('./assets/fonts/GeppertSans-Bold.otf'),
@@ -126,7 +127,7 @@ const DepartmentSwitchboardStack = createStackNavigator();
 const DepartmentSwitchboardStackNavigator = () => (
   <DepartmentSwitchboardStack.Navigator
     screenOptions={{
-      title: 'władze wydziału',
+      title: 'wydział',
       header: props => <AppHeader {...props} />,
       ...DETAILS_TRANSITION_CONFIG,
     }}
@@ -134,6 +135,11 @@ const DepartmentSwitchboardStackNavigator = () => (
     <DepartmentSwitchboardStack.Screen
       name={screenNames.DEPARTMENT_SWITCHBOARD}
       component={DepartmentSwitchboard}
+    />
+    <DepartmentSwitchboardStack.Screen
+      name={screenNames.AUTHORITY_DEPARTMENT}
+      component={AuthorityDepartment}
+      options={{ title: 'władze wydziału' }}
     />
   </DepartmentSwitchboardStack.Navigator>
 );
