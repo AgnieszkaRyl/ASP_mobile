@@ -9,3 +9,6 @@ export const getAnniversaryPosts = () =>
 
 export const getEvents = () =>
   axios.get('/events').then(mapListRequestResponse);
+
+export const getFacultyStuff = () =>
+  axios.get('/faculty-stuff').then(response => response.data);

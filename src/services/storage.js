@@ -13,6 +13,7 @@ export const StorageProvider = ({ children }) => {
     notifications: [],
     anniversaryPosts: [],
     events: [],
+    facultyStuff: [],
   });
 
   useEffect(() => {
@@ -26,6 +27,8 @@ export const StorageProvider = ({ children }) => {
       api.getNotifications().then(updateStorage('notifications')),
       api.getAnniversaryPosts().then(updateStorage('anniversaryPosts')),
       api.getEvents().then(updateStorage('events')),
+
+      api.getFacultyStuff().then(updateStorage('facultyStuff')),
     ])
       .catch(console.warn)
       .finally(() => updateStorage('isLoading')(false));
