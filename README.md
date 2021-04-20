@@ -3,3 +3,5 @@ This is a project of mobile application for 25th anniversary of Academy of Art a
 My part of group project in it is screens below and part of the collections built in the strapi technology. 
 
 
+All rights reserved. 
+
