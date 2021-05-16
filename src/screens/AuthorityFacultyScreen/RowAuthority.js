@@ -4,7 +4,6 @@ import { BLUE_ASP, ORANGE_ASP } from '../../constants/colors';
 import { GS_BOLD, GS_REGULAR } from '../../constants/fonts';
 
 export default function RowAuthority({
-  onPress,
   title,
   subtitle,
   email,

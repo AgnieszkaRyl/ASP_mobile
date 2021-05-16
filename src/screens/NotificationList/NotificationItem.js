@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
 import moment from 'moment';
 import { BLUE_ASP, ORANGE_ASP, GREY_ASP } from '../../constants/colors';
 import { GS_BOLD, GS_REGULAR } from '../../constants/fonts';
-import * as screenNames from '../../constants/screenNames';
 
 export default function NotificationItem({ item, navigation, onPress }) {
   return (
