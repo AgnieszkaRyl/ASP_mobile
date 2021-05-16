@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { BLUE_ASP, ORANGE_ASP } from './colors';
-import { GS_BOLD } from './fonts';
+import { BLUE_ASP, ORANGE_ASP } from '../constants/colors';
+import { GS_BOLD } from '../constants/fonts';
 import React from 'react';
 
 export default function StripeSwitchBoard({ title, IconPrep, isBlue }) {

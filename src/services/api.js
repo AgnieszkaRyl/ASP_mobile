@@ -12,3 +12,9 @@ export const getEvents = () =>
 
 export const getFacultyStuff = () =>
   axios.get('/faculty-stuff').then(response => response.data);
+
+export const getDepartments = () =>
+  axios.get('/departments').then(response => response.data);
+
+export const getWorkrooms = () =>
+  axios.get('/workrooms').then(response => response.data);
