@@ -5,7 +5,12 @@ export const DEPARTMENT_SWITCHBOARD_NAVIGATOR =
 export const ANNIVERSARY_NAVIGATOR = 'AnniversaryNavigator';
 
 export const EVENTS_LIST = 'EventsList';
+
 export const NOTIFICATIONS_LIST = 'NotificationList';
-export const DEPARTMENT_SWITCHBOARD = 'DepartmentSwitchboard';
+export const DEPARTMENT_SWITCHBOARD = 'FacultySwitchboard';
 export const ANNIVERSARY_CALENDAR_LIST_SCREEN = 'AnniversaryCalendarListScreen';
 export const NOTIFICATION_DETAILS = 'NotificationDetails';
+export const ARTISTIC_GRAPHICS = 'Department';
+
+export const AUTHORITY_DEPARTMENT = 'AuthorityFacultyScreen';
+export const WORKROOM = 'Workroom';
